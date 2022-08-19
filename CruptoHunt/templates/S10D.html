@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/3.3.3/js/dataTables.fixedColumns.min.js"></script>
+        <style>
+
+
+          body{
+
+            background-color: black;
+            font-family: "Serif";
+          }
+
+          select{
+            font-size: 38px;
+          }
+
+          .margin-top {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #BCECE0;
+            text-align:center;
+            padding: 5px ;
+          }
+
+
+
+
+          .header {
+              padding: 15px 1.25rem;
+               color: #94128A;
+               font-size: 20px;
+               background-color:black;
+          }
+          .container2{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+          }
+
+
+
+        </style>
+    </head>
+    <body>
+         <div class="navbar navbar-inverse">
+             <div class="container-fluid">
+                 <div class="row">
+                     <div class="header col-lg-12">
+                         <div class="navbar-header">
+                             <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                             <a href="/" class="navbar-brand"><font size="7" color="#fffcab" >CryptoHunt</font></a>
+                         </div>
+
+                         <div class="navbar-collapse collapse" id="mobile_menu">
+                            <ul class="nav navbar-nav">
+                                <li><a class="nav-item nav-link" href="{{url_for('table_creator')}}">Markets</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('chart_creator')}}">Charts</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('predictpage')}}">Predictions</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('newspage')}}">News</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('contactpage')}}">Contact Us</a></li>
+
+                            </ul>
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    <p class="margin-top " >
+            <font size="8"  style="bold"> $Solana  Price Prediction </font><br/><br/>
+    </p>
+
+    <div class="container2 align-center " >
+
+        <table   id="example" class="table row-border align-center" style="  width:50%;   background-color:	#042012;  color:#BCECE0;"; >
+            <thead >
+                <tr style="background-color: #fffcab; color:black;">
+
+
+                    <th>Open ($)</th>
+                    <th>High ($)</th>
+                    <th>Low ($)</th>
+                    <th>Close ($)</th>
+
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>39.14</th>
+                    <th>41.88</th>
+                    <th>37.97</th>
+                    <th>38.85</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>38.67</th>
+                    <th>40.12</th>
+                    <th>38.05</th>
+                    <th>38.23</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>38.19</th>
+                    <th>39.72</th>
+                    <th>37.84</th>
+                    <th>38.61</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>38.93</th>
+                    <th>39.91</th>
+                    <th>37.45</th>
+                    <th>39.37</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>39.22</th>
+                    <th>42.13</th>
+                    <th>39.18</th>
+                    <th>40.08</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>39.99</th>
+                    <th>43.34</th>
+                    <th>39.86</th>
+                    <th>41.21</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>40.76</th>
+                    <th>43.67</th>
+                    <th>40.55</th>
+                    <th>41.03</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>41.31</th>
+                    <th>44.27</th>
+                    <th>41.09</th>
+                    <th>43.34</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>42.63</th>
+                    <th>47.44</th>
+                    <th>42.47</th>
+                    <th>45.12</th>
+
+                </tr>
+                <tr style="backgrund-color:green; color:white;">
+
+
+                    <th>44.68</th>
+                    <th>48.14</th>
+                    <th>43.77</th>
+                    <th>44.94</th>
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+
+    </body>
+</html>

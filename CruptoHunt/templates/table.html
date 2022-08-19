@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:table-align="http://www.w3.org/1999/xhtml" xmlns:width="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CryptoHunt</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/3.3.3/js/dataTables.fixedColumns.min.js"></script>
+    <style>
+          body{
+
+            background-color:black;
+            font-family: "Serif";
+          }
+
+          .header {
+              padding: 15px 1.25rem;
+               color: #94128A;
+               font-size: 20px;
+               background-color:black;
+          }
+          .margin-top {
+            margin-top: 0px;
+            color: #BCECE0;
+            align-text:center;
+            padding: 5px ;
+
+          }
+          .container-fluid{
+           font-size: 15px;
+          }
+    </style>
+</head>
+
+<body id="myPage" >
+    <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="header col-lg-12">
+
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        <a href="/" class="navbar-brand"><font size="7" color="#fffcab" >CryptoHunt</font></a>
+                    </div>
+
+                    <div class="navbar-collapse collapse" id="mobile_menu">
+                        <ul class="nav navbar-nav">
+
+                            <li><a class="nav-item nav-link" href="{{url_for('table_creator')}}">Markets</a></li>
+                            <li><a class="nav-item nav-link" href="{{url_for('chart_creator')}}">Charts</a></li>
+                            <li><a class="nav-item nav-link" href="{{url_for('predictpage')}}">Predictions</a></li>
+                            <li><a class="nav-item nav-link" href="{{url_for('newspage')}}">News</a></li>
+                            <li><a class="nav-item nav-link" href="{{url_for('contactpage')}}">Contact Us</a></li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  style="text-align: center ">
+        <p class="margin-top " >
+            <font size="8"  style="bold"> Cryptocurrency  Price  Tracker </font>
+        </p>
+    </div>
+
+    <div class="container-fluid " >
+        <table id="example" class="table row-border align-center" style=" text-size: 30px; width:100%; background-color:	#042012;  color:#BCECE0;"; >
+            <thead style="background-color: #fffcab; color:black;">
+                <tr>
+
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Price ($)</th>
+                    <th>Change ($)</th>
+                    <th>Change %</th>
+                    <th>Market Cap ($)</th>
+
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                "responsive": true,
+                "bPaginate": true,
+                "info":true,
+                "bLengthChange": true,
+                "lengthMenu": [25, 50, 75, 100],
+                "pageLength": 25,
+                "order": [[ 4, "desc" ]],
+                "ajax": {
+                    "url": "api/table",
+                    "dataSrc": ""
+                },
+                "columns": [
+                    { "data": "symbol",
+                        render: function ( data, type, row ) {
+                            return '<a target="_blank" href="/overview/'+data+'" />'+data.replace(/[0-9]/g, "")+'&nbsp;<span class="glyphicon glyphicon-new-window"></span>'+'</a>';
+                        }
+                    },
+                    { "data": "name" },
+                    { "data": "price" },
+                    { "data": "chg" },
+                    { "data": "chg_per" },
+                    { "data": "market_cap" },
+                ],
+
+                "columnDefs": [ {
+                    "targets": [-2,-3],
+                    "createdCell": function (td, cellData, rowData, row, col) {
+                        if ( cellData.replace(",","") >= 0 ) {
+                            $(td).css('color', 'rgb(0, 255, 0)')
+                        }
+                        else {
+                            $(td).css('color', 'rgb(255, 0, 0)')
+                        }
+                    }
+                } ],
+            });
+            setInterval( function () {
+                $('#example').DataTable().ajax.reload(null, false);
+            }, 10000);
+        });
+
+        // setInterval( function () {
+        //     $('#example').DataTable().ajax.reload(null, false);
+        // }, 5000 );
+    </script>
+    <script>
+        $(document).ready(function(){
+            $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+
+            $(window).scroll(function() {
+                $(".slideanim").each(function(){
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        })
+    </script>
+</body>
+</html>
+    

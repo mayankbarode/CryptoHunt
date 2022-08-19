@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CryptoHunt</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+          body{
+            background-color:black;
+            font-family: "Serif";
+          }
+
+          .header {
+              padding: 15px 1.25rem;
+               color: #94128A;
+               font-size: 20px;
+               background-color:black;
+          }
+
+          .forms-out {
+            margin: 0 auto;
+            font-family: "Fira Sans", sans-serif;
+            padding: 15px 0;
+          }
+
+          .forms-in {
+            width: 93%;
+            margin: 0 auto;
+            color: black;
+            padding: 15px 0;
+          }
+
+          .forms-in div {
+            padding: 30px 20px;
+            max-width: 350px;
+            margin: 0 auto;
+            background: #168ab8;
+            border-radius: 5px;
+            margin-bottom: 15px;
+          }
+
+          .forms-in h3 {
+            text-align: center;
+          }
+
+          .forms-in input {
+            border: none;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+          }
+
+          .forms-in button {
+            border: none;
+            padding: 7px 20px;
+            background: #e8f8ff;
+            color: #168ab8;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+          }
+
+          .forms-in button:hover {
+            opacity: 0.7;
+          }
+
+          .hide {
+            display: none;
+          }
+
+          #forgot-password {
+            text-align: center;
+            font-size: 13                                                               px;
+            cursor: pointer;
+          }
+
+          #forgot-password:hover {
+            opacity: 0.7;
+          }
+        </style>
+    </head>
+    <body>
+         <div class="navbar navbar-inverse">
+             <div class="container-fluid">
+                 <div class="row">
+                     <div class="header col-lg-12">
+                         <div class="navbar-header">
+                             <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                             <a href="/" class="navbar-brand"><font size="7" color="#fffcab" >CryptoHunt</font></a>
+                         </div>
+
+                         <div class="navbar-collapse collapse" id="mobile_menu">
+                            <ul class="nav navbar-nav">
+                                <li><a class="nav-item nav-link" href="{{url_for('table_creator')}}">Markets</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('chart_creator')}}">Charts</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('predictpage')}}">Predictions</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('newspage')}}">News</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('contactpage')}}">Contact Us</a></li>
+                            </ul>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{url_for('loginpage')}}" class="dropdown-toggle">Login / Sign Up</a></li>
+                            </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         <div class="forms-out">
+             <div class="forms-in">
+                <div id="registration-page" class="hide">
+                    <button id="show-login">Sign In</button>
+                    <h3>Sign Up</h3>
+                    Email <br />
+                    <input type="email" id="registration-email" placeholder="name@example.com" /><br />
+                    Confirm Email <br />
+                    <input type="email" id="registration-reemail" autocomplete="enable" placeholder="name@example.com"/><br />
+                    Password <br />
+                    <input type="password" id="registration-password" placeholder="Enter password" /><br />
+                    <center><button id="register">Sign Up</button></center>
+                </div>
+                <div id="login-page">
+                    <button id="show-register">Sign Up</button>
+                    <h3>Sign In</h3>
+                    Email <br />
+                    <input type="email" id="login-email" placeholder="name@example.com" /><br />
+                    Password <br />
+                    <input type="password" id="login-password" placeholder="Enter password" /><br />
+                    <p id="forgot-password">Forgot Password</p>
+                    <center><button id="login">Sign In</button></center>
+                </div>
+
+                <div id="homepage" class="hide">
+                    <button id="signout">Sign Out</button>
+                    <h3>Logged In</h3>
+                </div>
+             </div>
+         </div>
+         <!-- The core Firebase JS SDK is always required and must be listed first -->
+         <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+         <!-- TODO: Add SDKs for Firebase products that you want to use-->
+         <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+
+         <script>
+            var firebaseConfig = {
+            apiKey: "AIzaSyCDGA9XM1WK0cdexESo8fr2uWn1ECVDakA",
+            authDomain: "cryptohunt-4f057.firebaseapp.com",
+            databaseURL: "https://cryptohunt-4f057-default-rtdb.firebaseio.com",
+            projectId: "cryptohunt-4f057",
+            storageBucket: "cryptohunt-4f057.appspot.com",
+            messagingSenderId: "22282769980",
+            appId: "1:22282769980:web:2e370708132c5065eed539",
+            measurementId: "G-YJ0CWK21ZG"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+         </script>
+         <script>
+             //invokes firebase authentication.
+
+const auth = firebase.auth();
+document.querySelector("#show-register").addEventListener("click", () => {
+showRegistration();
+});
+
+const showRegistration = () => {
+document.querySelector("#registration-page").classList.remove("hide");
+document.querySelector("#login-page").classList.add("hide");
+document.querySelector("#homepage").classList.add("hide");
+};
+
+document.querySelector("#show-login").addEventListener("click", () => {
+showLogin();
+});
+
+const showLogin = () => {
+document.querySelector("#registration-page").classList.add("hide");
+document.querySelector("#login-page").classList.remove("hide");
+document.querySelector("#homepage").classList.add("hide");
+};
+
+document.querySelector("#signout").addEventListener("click", () => {
+signOut();
+});
+
+const register = () => {
+const email = document.querySelector("#registration-email").value;
+const reemail = document.querySelector("#registration-reemail").value;
+const password = document.querySelector("#registration-password").value;
+
+if (email.trim() == "") {
+    alert("Enter Email");
+} else if (password.trim().length < 7) {
+    alert("Password must be at least 7 characters");
+} else if (email != reemail) {
+    alert("emails do not match");
+} else {
+    auth
+    .createUserWithEmailAndPassword(email, password)
+    .catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+        // ...
+
+    });
+
+}
+};
+
+document.querySelector("#register").addEventListener("click", () => {
+register();
+});
+
+//register when you hit the enter key
+document.querySelector("#registration-password").addEventListener("keyup", (e) => {
+    if (event.keyCode === 13) {
+    e.preventDefault();
+    register();
+    }
+});
+
+const login = () => {
+const email = document.querySelector("#login-email").value;
+const password = document.querySelector("#login-password").value;
+
+if (email.trim() == "") {
+    alert("Enter Email");
+} else if (password.trim() == "") {
+    alert("Enter Password");
+} else {
+    authenticate(email, password);
+}
+};
+
+document.querySelector("#login").addEventListener("click", () => {
+login();
+});
+
+//sign in when you hit enter
+document.querySelector("#login-password").addEventListener("keyup", (e) => {
+    if (event.keyCode === 13) {
+    e.preventDefault();
+    login();
+    }
+});
+
+const authenticate = (email, password) => {
+const auth = firebase.auth();
+auth.signInWithEmailAndPassword(email, password);
+firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage);
+    });
+
+};
+
+const showHomepage = () => {
+  document.querySelector("#registration-page").classList.add("hide");
+  document.querySelector("#login-page").classList.add("hide");
+  document.querySelector("#homepage").classList.remove("hide");
+};
+
+const signOut = () => {
+firebase
+    .auth()
+    .signOut()
+    .then(function () {
+    location.reload();
+    })
+    .catch(function (error) {
+    alert("error signing out, check network connection");
+    });
+};
+
+auth.onAuthStateChanged((firebaseUser) => {
+if (firebaseUser) {
+        showHomepage();
+    }
+
+});
+
+document.querySelector("#forgot-password").addEventListener("click", () => {
+    const email = document.querySelector("#login-email").value;
+    if (email.trim() == "") {
+    alert("Enter Email");
+    } else {
+    forgotPassword(email);
+    }
+});
+
+const forgotPassword = (email) => {
+auth
+    .sendPasswordResetEmail(email)
+    .then(function () {
+    alert("email sent");
+    })
+    .catch(function (error) {
+    alert("invalid email or bad network connection");
+    });
+};
+</script>
+
+
+    </body>
+</html>

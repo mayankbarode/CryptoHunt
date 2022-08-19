@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CryptoHunt</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+        <style>
+          body{
+            background-color: black;
+            font-family: "Serif";
+          }
+
+          .header {
+              padding: 15px 1.25rem;
+               text-color: white;
+               font-size: 20px;
+               background-color:black;
+          }
+          .contact-parent{
+
+            background: #fff;
+            display:flex;
+            margin:10px 20px 10px ;
+          }
+
+          .contact-child{
+            display:flex;
+            flex:1;
+            box-shadow:0px 0px 10px -2px rgba(0,0,0,0.75);
+          }
+
+          .child1{
+            background-color: #042012;
+            align-items:center;
+            flex-direction:column;
+            justify-content:space-around;
+            color:#fff;
+            padding:5px 15px;
+
+
+          }
+
+          .child1 p{
+
+            padding-left:30%;
+            font-size:30px;
+            text-shadow:0px 0px 2px #000;
+            align-items:center;
+
+          }
+
+          .child2{
+            background: url("https://wallpapercave.com/wp/J5z3cbn.jpg");
+            lex-direction:row;
+            justify-content:space-around;
+            align-items:center;
+
+          }
+
+          .inside-contact{
+            width:85%;
+            margin:18px auto;
+          }
+
+          .inside-contact h1{
+            text-align:center;
+
+          }
+
+          .inside-contact h3{
+            text-align:center;
+            font-size:16px;
+            color:#0085e2;
+          }
+
+          .inside-contact input{
+            height: 40px;
+            width:100%;
+            font-size:18px;
+            background-color:#eee;
+            border:1px solid rgba(0,0,0,0.48);
+            padding:5px 10px;
+            margin-bottom:20px;
+          }
+          .contact-child child1{
+            width:85%;
+            margin:0px auto;
+            padding:5px 10px;
+
+          }
+          .inside-contact textarea{
+            width:100%;
+            font-size:18px;
+            height: 120px;
+            background-color:#eee;
+            border:1px solid rgba(0,0,0,0.48);
+            padding:5px 10px;
+            margin-bottom:20px;
+          }
+
+          .inside-contact input[type=submit]{
+            background-color:#000;
+            color:#fff;
+            transition:0.2s;
+            border:2px solid #000;
+            margin:20px 0;
+          }
+
+          .inside-contact input[type=submit]:hover{
+            background-color:#fff;
+            color:#000;
+            transition:0.2s;
+          }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse">
+             <div class="container-fluid">
+                 <div class="row">
+                     <div class="header col-lg-12">
+                         <div class="navbar-header">
+                             <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                             <a href="/" class="navbar-brand"><font size="7" color="#fffcab" >CryptoHunt</font></a>
+                         </div>
+
+                         <div class="navbar-collapse collapse" id="mobile_menu">
+                            <ul class="nav navbar-nav">
+                                <li><a class="nav-item nav-link" href="{{url_for('table_creator')}}">Markets</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('chart_creator')}}">Charts</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('predictpage')}}">Predictions</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('newspage')}}">News</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('contactpage')}}">Contact Us</a></li>
+                            </ul>
+
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+        </div>
+
+        <form class="container" id="contactForm" onsubmit="javascript:alert(' Contact Us Form Submitted Successfully !');" >
+            <div class="contact-child" >
+                <div class="contact-child child1  " >
+                    <p >
+                        <i class="fas fa-map-marker-alt1 "></i><h1>Our Team Members</h1></br>
+                            <span>
+                                <h4>Mayank Barode<h5>Email : mayankbarodemb@gmail.com</h5></h4><br/>
+                                <h4>Komal Lachyankar<h5>Email : komallachyankar@gmail.com</h5></h4><br/>
+                                <h4>Pranal Jain<h5>Email : pranal1999jain@gmail.com</h5></h4><br/>
+                                <h4>Nilambari Kale<h5>Email : nilambarikale1237@gmail.com</h5></h4>
+                            </span>
+                        <i >______________________________________________________</i><br/>
+                        <i class="fas fa-map-marker-alt "></i>
+                        <h5>Address :</br>Pune<br/>Maharashtra, India<br/><br/>General Support :<br/>contact@cryptohunt.com</h5><br/>
+                    </p>
+                </div>
+                <div class="contact-child child2" >
+                    <div class="inside-contact" >
+                        <h1>Contact Us</h1>
+                        <h3>
+                            <span id="confirm"></span>
+                        </h3>
+                        <p><font size="4" style="color:black;">Name *</font></p>
+                            <input id="name" type="text" width="100" height="10" Required="required" placeholder="Enter your name">
+                        <p><font size="4" style="color:black;">Email *</font></p>
+                            <input id="email" type="text" width="100" height="10" Required="required" placeholder="name@example.com"  >
+                        <p><font size="4" style="color:black;">Phone *</font></p>
+                            <input id="phone" type="number" width="100" height="10" Required="required" placeholder="Enter your Phone number">
+                        <p><font size="4" style="color:black;">Message *</font></p>
+                            <textarea id="message" rows="4" cols="20" Required="required" placeholder="Message you want to send" ></textarea>
+                            <input type="submit" id="btn_send" value="SEND">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <script src=
+        "https://www.gstatic.com/firebasejs/3.7.4/firebase.js">
+        </script>
+
+        <script >
+                    $( window ).unload(function() {
+                        alert( "Handler for .unload() called." );
+                    });
+        </script>
+
+        <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyCDGA9XM1WK0cdexESo8fr2uWn1ECVDakA",
+            authDomain: "cryptohunt-4f057.firebaseapp.com",
+            databaseURL: "https://cryptohunt-4f057-default-rtdb.firebaseio.com",
+            projectId: "cryptohunt-4f057",
+            storageBucket: "cryptohunt-4f057.appspot.com",
+            messagingSenderId: "22282769980",
+            appId: "1:22282769980:web:2e370708132c5065eed539",
+            measurementId: "G-YJ0CWK21ZG"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        var messagesRef = firebase.database()
+            .ref('Collected Data');
+
+        document.getElementById('contactForm')
+            .addEventListener('submit', submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            // Get values
+            var name = getInputVal('name');
+            var email = getInputVal('email');
+            var phone = getInputVal('phone');
+            var message = getInputVal('message');
+
+            saveMessage(name, email, phone, message);
+            document.getElementById('contactForm').reset();
+        }
+
+        // Function to get get form values
+        function getInputVal(id) {
+            return document.getElementById(id).value;
+        }
+
+        // Save message to firebase
+        function saveMessage(name, email, phone, message) {
+            var newMessageRef = messagesRef.push();
+            newMessageRef.set({
+                name: name,
+                email: email,
+                phone: phone,
+                message: message,
+            });
+        }
+
+        </script>
+    </body>
+</html>

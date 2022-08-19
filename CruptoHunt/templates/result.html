@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CryptoHunt</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+
+
+          body{
+            background-color: black;
+            font-family: "Serif";
+          }
+
+          select{
+
+            display: flex;
+            margin: 5px 700px;
+            font-size: 24px;
+          }
+          select1{
+
+            display: flex;
+            margin: 5px 700px;
+            font-size: 24px;
+          }
+
+
+          .header {
+              padding: 5px 1rem;
+               color: #94128A;
+               font-size: 20px;
+               background-color:black;
+          }
+          .c1{
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #BCECE0;
+            margin:10px;
+
+          }
+           .c2{
+            margin:10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: YELLOW;
+
+          }
+
+          .c3{
+            margin:160px 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: YELLOW;
+
+          }
+          .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+
+          }
+
+        </style>
+    </head>
+    <body>
+         <div class="navbar navbar-inverse">
+             <div class="container-fluid">
+                 <div class="row">
+                     <div class="header col-lg-12">
+                         <div class="navbar-header">
+                             <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                             <a href="/" class="navbar-brand"><font size="7" color="#fffcab" >CryptoHunt</font></a>
+                         </div>
+
+                         <div class="navbar-collapse collapse" id="mobile_menu">
+                            <ul class="nav navbar-nav">
+                                <li><a class="nav-item nav-link" href="{{url_for('table_creator')}}">Markets</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('chart_creator')}}">Charts</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('predictpage')}}">Predictions</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('newspage')}}">News</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('contactpage')}}">Contact Us</a></li>
+
+                            </ul>
+                             <ul class="nav navbar-nav navbar-right">
+                                 <li><a href="{{url_for('loginpage')}}" class="dropdown-toggle">Login / Sign Up</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div>
+             <div>
+                <p class="c1 " >
+                    <font size="8"  style="bold"> Cryptocurrency  Price Prediction </font>
+                </p>
+                <p class="c2 " >
+                    <font size="6"  style="bold">$ Matic Price Predictions For</font>
+                </p>
+                     <select name="Select a Coin fro prediction" onchange="location = this.value;" id="lang">
+                     <option value="">Select No. of days </option>
+                     <option value="{{url_for('M1D')}}">Tomorrow</option>
+                     <option value="{{url_for('M3D')}}">Next 3 days</option>
+                     <option value="{{url_for('M5D')}}">Next 5 days</option>
+                     <option value="{{url_for('M10D')}}">Next 10 days</option>
+                     </select>
+                <p class="c3 " >
+                    <font size="6"  style="bold">$ Solana Price Predictions For</font>
+                </p>
+                     <select class="select1" name="Select a Coin fro prediction" onchange="location = this.value;" id="lang1">
+                     <option value="">Select No. of days </option>
+                     <option value="{{url_for('S1D')}}">Tomorrow</option>
+                     <option value="{{url_for('S3D')}}">Next 3 days</option>
+                     <option value="{{url_for('S5D')}}">Next 5 days</option>
+                     <option value="{{url_for('S10D')}}">Next 10 days</option>
+                     </select>
+             </div>
+
+         </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CryptoHunt</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+          body {
+
+            background-color:black;
+            font-family: "Serif";
+          }
+          .header {
+               padding: 15px 1.25rem;
+               text-color: white;
+               font-size: 20px;
+               background-color:black;
+          }
+          .heading{
+                padding: 0px ;
+          }
+
+          .margin-top {
+            margin-top: px;
+            color: #BCECE0;
+            align-text:center;
+            padding: 0px ;
+          }
+
+          ul.list-group{
+            margin-top: 2px;
+            color: black;
+            padding: 2px ;
+
+
+          }
+          div.newslist{
+            color: black;
+            align-text:center;
+            padding: 2px ;
+	        text-align:center;
+          }
+          div.newslist ul li{
+            display:inline;
+          }
+          div.newslist ul li news-img{
+            width:1000;
+            height:500;
+          }
+
+        </style>
+    </head>
+
+    <body>
+         <div class="navbar navbar-inverse">
+             <div class="container-fluid">
+                 <div class="row">
+                     <div class="header col-lg-12">
+                         <div class="navbar-header">
+                             <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                             <a href="/" class="navbar-brand"><font size="7" color="#fffcab" >CryptoHunt</font></a>
+                         </div>
+
+                         <div class="navbar-collapse collapse" id="mobile_menu">
+                            <ul class="nav navbar-nav">
+                                <li><a class="nav-item nav-link" href="{{url_for('table_creator')}}">Markets</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('chart_creator')}}">Charts</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('predictpage')}}">Predictions</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('newspage')}}">News</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('contactpage')}}">Contact Us</a></li>
+                            </ul>
+
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+    <div class="heading">
+
+         <p class="margin-top" style="text-align: center ">
+             <font size="8" >Latest Cryptocurrency News </font>
+         </p>
+    </div>
+        <div class="div-2 ">
+            <div class="newslist" >
+                <ul class="list-group"  >
+                    <li class="list-group-item" >
+                        <a href="https://www.msn.com/en-us/money/personalfinance/goldman-sachs-bitcoin-survey-shows-insurers-beginning-to-warm-to-crypto-investing/ar-AAXYnJg?ocid=uxbndlbing" title="Goldman Sachs Bitcoin Survey Shows Insurers Beginning To Warm To Crypto Investing" >
+                            <img width="1000" height="500" src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAXYPgt.img?h=768&w=1366&m=6&q=60&o=f&l=f" class="news-img" />
+                            <h3>Goldman Sachs Bitcoin Survey Shows Insurers Beginning To Warm To Crypto Investing</h3>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item" >
+                        <a href="https://finance.yahoo.com/news/crypto-market-reverses-course-strong-022912348.html" title="Crypto market reverses course after strong start to the week" >
+                            <img width="1000" height="500" src="https://s.yimg.com/ny/api/res/1.2/oD8.5ChEHoDncprdHZXc2A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/iYty6RyXDf48r0iGj1LDgw--~B/aD0wO3c9MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/forkast_news_articles_672/ded2a1827c02ae0f17e27707c66b5e3e" class="news-img" />
+                            <h3>Crypto market reverses course after strong start to the week</h3>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item" >
+                        <a href="https://gizmodo.com/crypto-stablecoin-terra-blockchain-web3-1849001601" title="Tech Experts Urge Congress to Fight Crypto Influence" >
+                            <img width="1000" height="500" src="https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,pg_1,q_60,w_1165/1e1ab33928f26e2092c1e35f0028f1ba.jpg" class="news-img" />
+                            <h3>Tech Experts Urge Congress to Fight Crypto Influence</h3>
+                        </a>
+                    </li>
+
+                   <li class="list-group-item" >
+                        <a href="https://gizmodo.com/warren-buffett-all-bitcoin-world-25-dollars-assets-valu-1848866967" title="Warren Buffett Says He Wouldn't Take All the Bitcoin in the World for $25" >
+                            <img width="1000" height="500" src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/bbc389f90510758bf8f4131a7e2cbacd.png" class="news-img" />
+                            <h3>Warren Buffett Says He Wouldn't Take All the Bitcoin in the World for $25</h3>
+                        </a>
+                    </li>
+                    <li class="list-group-item" >
+                        <a href="https://www.wired.com/story/terra-luna-collapse/" title="Terra’s Crypto Meltdown Was Inevitable" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://media.wired.com/photos/627d5bac0c454f12d5142672/191:100/w_1280,c_limit/Terra-Luna-Stable-Coins-Business-1382597134.jpg" class="news-img" />
+                            <h3>Terra’s Crypto Meltdown Was Inevitable</h3>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item" >
+                        <a href="https://www.theverge.com/2022/4/30/23050263/telegram-lets-users-send-cryptocurrency-chats-toncoin-ton" title="Telegram now lets users send cryptocurrency through TON blockchain spinoff" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://cdn.vox-cdn.com/thumbor/UdhpgI5DTqayp4dfCSt4IyIxBMA=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/10668743/acastro_180417_1777_telegram_0002.jpg" class="news-img" />
+                            <h3>Telegram now lets users send cryptocurrency through TON blockchain spinoff</h3>
+                        </a>
+                    </li>
+                    <li class="list-group-item" >
+                        <a href="https://www.theverge.com/23138465/decoder-ukraine-war-cryptocurrency-michael-chobanian-interview-bitcoin-usdt" title="How Ukraine’s wide use of cryptocurrency is playing out during the war" target="_blank" rel="noreferrer">
+                            <img width="1000" height="550" src="https://cdn.vox-cdn.com/thumbor/hyxIGAl42Cl6sDQJzy2cD3X4tEg=/0x148:2050x1221/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/23583410/VRG_ILLO_Decoder_Michael_Chobanian.jpg" class="news-img"/>
+                            <h3>How Ukraine’s wide use of cryptocurrency is playing out during the war</h3>
+                        </a>
+                    </li>
+                    <li class="list-group-item" >
+                        <a href="https://www.theverge.com/2022/5/12/23069232/terra-luna-collapse-stablecoins-crypto-crash-bitcoin" title="Stablecoins are struggling to survive the crypto crash" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://cdn.vox-cdn.com/thumbor/rUaR5RqYmvfihRfA_BzIMNOzcio=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/10576389/acastro_180402_2428_001.jpg" class="news-img" />
+                            <h3>Stablecoins are struggling to survive the crypto crash</h3>
+                        </a>
+                    </li>
+                     <li class="list-group-item" >
+                        <a  href="https://gizmodo.com/luna-foundation-terra-bitcoin-crypto-lfg-1848933191" title="Luna Foundation Tried to Prop Up Terra’s Crumbling Base With Billions in Bitcoin, But It Still Failed" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/f8f25ce9a57b3454932cdead4c3278b6.jpg" class="news-img" />
+                            <h3>Luna Foundation Tried to Prop Up Terra’s Crumbling Base With Billions in Bitcoin, But It Still Failed</h3>
+                        </a>
+                    </li>
+                    <li class="list-group-item" >
+                        <a  href="https://gizmodo.com/gamestop-crypto-nft-wallet-blockchain-1848965386" title="GameStop Dunks Its Head Into the Crypto Kiddie Pool" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/cd4c128b4182d7b2fba8152d7bb35733.jpg"  class="news-img" />
+                            <h3>GameStop Dunks Its Head Into the Crypto Kiddie Pool</h3>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item" >
+                        <a  href="https://www.engadget.com/instagram-nft-details-131020868.html" title="Here's what NFTs look like on Instagram" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500"  src="https://s.yimg.com/os/creatr-uploaded-images/2022-05/2546c160-d05e-11ec-b75e-e45eaa8c5b2b" class="news-img" />
+                            <h3>Here's what NFTs look like on Instagram </h3>
+                        </a>
+                    </li>
+                    <li class="list-group-item" >
+                        <a href="https://www.theverge.com/2022/5/4/23055761/exxonmobil-cryptomining-bitcoin-methane-gas" title="Why fossil fuel companies see green in Bitcoin mining projects" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://cdn.vox-cdn.com/thumbor/BZdljrBbt8tBl6oCCnckcDKqe6g=/0x90:4608x2503/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/23435975/1240300988.jpg" class="news-img" />
+                            <h3>Why fossil fuel companies see green in Bitcoin mining projects</h3>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item" >
+                        <a href="https://www.theverge.com/2022/5/20/23131647/terra-luna-do-kwon-stablecoin-anchor" title="How the Anchor protocol helped sink Terra" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://cdn.vox-cdn.com/thumbor/IVL0qTILLdUK0KGUt8E3CQahHro=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22413649/acastro_210329_1777_nft_0004.jpg" class="news-img" />
+                           <h3>How the Anchor protocol helped sink Terra</h3>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item" >
+                        <a href="https://gizmodo.com/brinks-says-it-will-secure-crypto-backups-in-secret-vau-1848886712" title="Armored Truck Firm Brink's Says It Will Secure Crypto Backups in Secret Vaults" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/3204af91d4ad873f7eb6088dcb00d2db.jpg" class="news-img" />
+                            <h3>Armored Truck Firm Brink's Says It Will Secure Crypto Backups in Secret Vaults</h3>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item" >
+                        <a href="https://gizmodo.com/luna-price-do-kwon-police-south-korea-home-apartment-bi-1848921120" title="Crypto Investor Who Lost Big Money Spooks Luna Founder's Wife at Home: Report" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/d62e38808d3d2cdf010c64d6b23acc82.png" class="news-img" />
+                            <h3>Crypto Investor Who Lost Big Money Spooks Luna Founder's Wife at Home: Report</h3>
+                        </a>
+                    </li>
+                    <li class="list-group-item" >
+                        <a href="https://gizmodo.com/bitcoin-cryptocurrency-biggest-heists-2022-so-far-1848883482" title="10 of the Biggest Crypto Heists of 2022...So Far" target="_blank" rel="noreferrer">
+                            <img width="1000" height="500" src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/d1604fa912e79afc9467f1664e33ba57.jpg" class="news-img" />
+                            <h3>10 of the Biggest Crypto Heists of 2022...So Far</h3>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

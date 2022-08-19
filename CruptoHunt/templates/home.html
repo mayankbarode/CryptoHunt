@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CryptoHunt</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+
+          body{
+
+            background-color: black;
+            font-family: "Serif";
+          }
+
+          .header {
+              padding: 15px 1.25rem;
+               text-color: white;
+               font-size: 20px;
+               background-color:black;
+          }
+
+
+          @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                text-decoration: none;
+            }
+            .max-width{
+                max-width: 1300px;
+                padding: 0 120px;
+                margin: auto;
+            }
+            .menu li a{
+                color: #fff;
+                font-weight: 700;
+                padding: 10px;
+                margin-left: 25px;
+                margin-top: 80px;
+            }
+
+            .logo p{
+                margin-top: 0px;
+                color: yellow;
+                font-size: 75px;
+                font-weight: 700;
+            }
+            .home{
+                display: flex;
+                background-color: black;
+                height:100vh;
+                color: #fff;
+                min-height: 500px;
+                font-family: "Serif";
+            }
+            .home .max-width{
+                margin-top:  100px;
+                margin-left: 120px;
+            }
+
+            .home .home-content .text-1{
+                font-size: 55px;
+                font-weight: 600;
+                margin-left: -3px;
+            }
+            .home .home-content .text-2{
+                font-size: 29px;
+                color:Green;
+            }
+            .home .home-content .text-3{
+                color: burlywood;
+                font-size: 2px;
+                margin: 10px 0;
+            }
+            .home .home-content .text-1 span{
+                color:crimson;
+                font-weight: 600;
+            }
+            .home .home-content a{
+                display: inline-block;
+                background:#fffcab;
+                color: black;
+                font-size: 25px;
+                padding:12px 36px;
+                margin-top: 20px;
+                border-radius: 6px;
+                border: 2px solid pink;
+                transition: all 0.3s ease;
+            }
+            .home .home-content a:hover{
+                color: #fff;
+                background: none;
+            }
+        </style>
+    </head>
+    <body>
+         <div class="navbar navbar-inverse">
+             <div class="container-fluid">
+                 <div class="row">
+                     <div class="header col-lg-12">
+                         <div class="navbar-header">
+                             <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                             <a href="/" class="navbar-brand"><font size="7" color="#fffcab" >CryptoHunt</font></a>
+                         </div>
+
+                         <div class="navbar-collapse collapse" id="mobile_menu">
+                            <ul class="nav navbar-nav">
+                                <li><a class="nav-item nav-link" href="{{url_for('table_creator')}}">Markets</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('chart_creator')}}">Charts</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('predictpage')}}">Predictions</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('newspage')}}">News</a></li>
+                                <li><a class="nav-item nav-link" href="{{url_for('contactpage')}}">Contact Us</a></li>
+
+                            </ul>
+
+                             <ul class="nav navbar-nav navbar-right">
+                                 <li><a href="{{url_for('loginpage')}}" class="dropdown-toggle">Login / Sign Up</a>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+    <section class="home " id="home">
+        <div class="max-width">
+            <div class="logo"> <p>Crypto <span>Hunt</span></p></div>
+            <div class="home-content">
+                <div class="text-1">To the world of <span>Cryptocurrency</span></div>
+                <div class="text-2">Check out Latest Crypto Prices and their Future predictions  </div>
+                <a href="{{url_for('table_creator')}}">Explore Now</a>
+            </div>
+        </div>
+    </section>
+
+    </body>
+</html>
